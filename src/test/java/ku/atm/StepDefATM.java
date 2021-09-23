@@ -24,6 +24,12 @@ public class StepDefATM {
         bank.addCustomer(new Customer(id, pin));
     }
 
+//    @Given("a customer with id {int} does not exists")
+//    public void a_customer_with_id_does_not_exists(int id)
+//    {
+//        bank.findCustomer(id);
+//    }
+
     @Given("a customer with id {int} and pin {int} with balance {float} exists")
     public void a_customer_with_id_and_pin_with_balance_exists(int id, int pin, double balance) {
         bank.addCustomer(new Customer(id, pin, balance));
@@ -47,6 +53,12 @@ public class StepDefATM {
     @When("I withdraw {float} from ATM")
     public void i_withdraw_from_atm(double amount) throws NotEnoughBalanceException {
         atm.withdraw(amount);
+    }
+
+    @When("I deposit {float} to ATM")
+    public void i_deposit_to_atm(double amount)
+    {
+        atm.deposit(amount);
     }
 
     @When("I overdraw {float} from ATM")
